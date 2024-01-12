@@ -1,5 +1,3 @@
-name: GreetingsOnSelfHosted
-
 on: [push]
 
 jobs:

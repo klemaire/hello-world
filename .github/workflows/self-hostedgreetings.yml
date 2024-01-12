@@ -1,3 +1,5 @@
+name: Self hosted greeting
+
 on: [push, workflow_dispatch]
 
 jobs:
@@ -7,3 +9,4 @@ jobs:
     - name: Test Run
       run: |
         hostname
+        echo "Test ${{ secrets.my_secret }}"

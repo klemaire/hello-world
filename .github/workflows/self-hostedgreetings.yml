@@ -8,15 +8,15 @@ jobs:
     env:
       MY_SECRET: ${{ secrets.my_secret }}
     steps:
-    - uses: actions/checkout@v4
-    - name: Test Run
-      run: |
-        hostname
-        echo "Test variable : ${{ vars.TEST_VARIABLE }}"
-        echo "Test secret : $MY_SECRET" > .my_secret_file
-        cat .my_secret_file
-    - name: Explore
-      run: |
-        ls
-        cat test.html
-        open test.html
+      - uses: actions/download-artifacts@v3
+          name: download website
+          path: web.tgz
+      - name: Test Run
+        run: |
+          hostname
+          echo "Test variable : ${{ vars.TEST_VARIABLE }}"
+      - name: extract website and run
+        run: |
+          ls
+          tar -xvzf web.tgz
+          open test.html

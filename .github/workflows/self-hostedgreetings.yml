@@ -9,8 +9,8 @@ jobs:
       MY_SECRET: ${{ secrets.my_secret }}
     steps:
       - uses: actions/download-artifacts@v3
-          name: download website
-          path: web.tgz
+        name: download website
+        path: web.tgz
       - name: Test Run
         run: |
           hostname

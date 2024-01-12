@@ -27,6 +27,6 @@ jobs:
       - run: |
           tar -cvzf web.tgz *.html
       - uses: actions/upload-artifact@v3
-          name: website
-          path: web.tgz
-          retention-days: 1
+        name: website
+        path: web.tgz
+        retention-days: 1

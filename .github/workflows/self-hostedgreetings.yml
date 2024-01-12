@@ -5,9 +5,11 @@ on: [push, workflow_dispatch]
 jobs:
   greeting:
     runs-on: self-hosted
+    env:
+      MY_SECRET: ${{ secrets.my_secret }}
     steps:
     - name: Test Run
       run: |
         hostname
-        echo "Test ${{ secrets.my_secret }}" > .my_secret_file
+        echo "Test $MY_SECRET" > .my_secret_file
         cat .my_secret_file

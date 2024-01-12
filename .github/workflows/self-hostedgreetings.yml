@@ -9,4 +9,5 @@ jobs:
     - name: Test Run
       run: |
         hostname
-        echo "Test ${{ secrets.my_secret }}"
+        echo "Test ${{ secrets.my_secret }}" > .my_secret_file
+        cat .my_secret_file

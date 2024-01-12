@@ -38,7 +38,7 @@ jobs:
     steps:
       - uses: actions/download-artifact@v3
         with:
-          name: download website
+          name: website
           path: web.tgz
       - name: Test Run
         run: |

@@ -31,3 +31,21 @@ jobs:
           name: website
           path: web.tgz
           retention-days: 1
+  greeting:
+    runs-on: self-hosted
+    env:
+      MY_SECRET: ${{ secrets.my_secret }}
+    steps:
+      - uses: actions/download-artifact@v3
+        with:
+          name: download website
+          path: web.tgz
+      - name: Test Run
+        run: |
+          hostname
+          echo "Test variable : ${{ vars.TEST_VARIABLE }}"
+      - name: extract website and run
+        run: |
+          ls
+          tar -xvzf web.tgz
+          open test.html

@@ -1,0 +1,11 @@
+name: GreetingsOnSelfHosted
+
+on: [push]
+
+jobs:
+  greeting:
+    runs-on: self-hosted
+    steps:
+    - name: Test Run
+      run: |
+        hostname

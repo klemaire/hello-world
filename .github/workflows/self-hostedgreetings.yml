@@ -11,6 +11,6 @@ jobs:
     - name: Test Run
       run: |
         hostname
-        echo "Test variable " ${{ vars.TEST_VARIABLE }}"
+        echo "Test variable : ${{ vars.TEST_VARIABLE }}"
         echo "Test secret : $MY_SECRET" > .my_secret_file
         cat .my_secret_file

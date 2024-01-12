@@ -33,7 +33,7 @@ jobs:
           retention-days: 1
   deploy:
     runs-on: self-hosted
-    needs: checkout
+    needs: build
     env:
       MY_SECRET: ${{ secrets.my_secret }}
     steps:

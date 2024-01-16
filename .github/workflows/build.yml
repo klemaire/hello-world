@@ -24,8 +24,8 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
-      - run: |
-          tar -cvzf artifact/web.tgz website/*.html
+      - run: mkdir artifact 
+      - run: tar -cvzf artifact/web.tgz website/*.html
       - uses: actions/upload-artifact@v4
         with:
           name: website

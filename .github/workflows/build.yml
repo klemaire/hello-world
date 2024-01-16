@@ -25,11 +25,11 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
       - run: |
-          tar -cvzf web.tgz *.html
+          tar -cvzf artifact/web.tgz website/*.html
       - uses: actions/upload-artifact@v4
         with:
           name: website
-          path: web.tgz
+          path: artifact/web.tgz
           retention-days: 1
   greeting:
     runs-on: self-hosted
@@ -37,15 +37,20 @@ jobs:
     env:
       MY_SECRET: ${{ secrets.my_secret }}
     steps:
+      - name: cleanup
+        run: |
+          rm -fR output
+          mkdir output
       - uses: actions/download-artifact@v4
         with:
           name: website
+          path: output
       - name: Test Run
         run: |
           hostname
           echo "Test variable : ${{ vars.TEST_VARIABLE }}"
       - name: extract website and run
         run: |
-          ls
-          tar -xvzf web.tgz
-          open test.html
+          ls -lrt
+          tar -xvzf output/web.tgz
+          open website/test.html

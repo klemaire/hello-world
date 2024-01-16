@@ -51,6 +51,6 @@ jobs:
           echo "Test variable : ${{ vars.TEST_VARIABLE }}"
       - name: extract website and run
         run: |
-          ls -lrt
+          ls -Rlrt
           tar -xvzf output/web.tgz
           open website/test.html
